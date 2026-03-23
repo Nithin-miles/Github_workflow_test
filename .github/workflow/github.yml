@@ -1,11 +1,11 @@
 name: Github actions learning
-'on':
+on:
   push:
     branches:
       - main
 jobs:
-  demo: null
-  runs-on: ubuntu-latest
-  steps: null
-  name: Git workflow running
-  run: echo "Github workflow is running successfully"
+  demo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Git workflow running
+        run: echo "Github workflow is running successfully"
