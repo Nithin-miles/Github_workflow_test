@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git workflow running
-        uses: actions/checkout@
+        uses: actions/checkout@v4
 
       - name: Workflow test
         run: echo "Github workflow is running successfully"
