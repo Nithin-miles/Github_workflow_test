@@ -1,11 +1,17 @@
 name: Github actions learning
-on:
+'on':
   push:
     branches:
       - main
 jobs:
-  demo:
+  Worflow_test:
     runs-on: ubuntu-latest
     steps:
       - name: Git workflow running
+        uses: actions/checkout@
+
+      - name: Workflow test
         run: echo "Github workflow is running successfully"
+      
+      - name: YML instructions working 
+        run: echo "YML instructions are used to create workflow in github actions"
