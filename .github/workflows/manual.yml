@@ -6,18 +6,22 @@ on:
      Buildenv:
        description: "Select the build environment eg: dev, staging, prod"
        required: true
-       type: string
-
-
+       type: string  # this inputs are showed at the time of #triggering a new workflow manually
+     Tags:
+      description: "Enter a valid tag to run test cases"
+      required: true
+      type: string
 jobs:
   Worflow_test:
     runs-on: ubuntu-latest
     steps:
       - name: Git workflow running
-        run: echo ${{inputs.Buildenv}}
+        run: echo ${{inputs.Buildenv}} #this print the value of the input
+        # provided at the time of triggering the workflow
 
-      - name: Workflow test
-        run: echo "Github workflow is running successfully"
+      - name: Tags received for test
+        run: echo  ${{inputs.Tags}}
       
       - name: YML instructions working 
-        run: echo "YML instructions are used to create workflow in github actions"
+        run: echo ${{inputs.Buildenv.towlowercase()}} # this is an example of using the yml instructions to convert the input value to lowercase
+        
