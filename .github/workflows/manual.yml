@@ -35,9 +35,9 @@ jobs:
          Env="${{inputs.Buildenv}}"
          echo "$Env" 
 
-      - name: Cleanup spec option recceived
+      - name: Cleanup spec option received
         run: | 
-         Clenup="${{input.Runcleanupspecs}}"
+         Clenup="${{inputs.Runcleanupspecs}}"
          echo "$Clenup"
         
         
