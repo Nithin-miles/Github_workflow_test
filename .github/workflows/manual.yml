@@ -21,7 +21,7 @@ jobs:
 
       - name: Tags received for test
         run: |
-         Tag ="${{inputs.Tags}}" 
+         Tag="${{inputs.Tags}}" 
          echo "Received tag: $Tag"
 
       - name: YML instructions working 
