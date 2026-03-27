@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
     inputs:
      Buildenv:
-       description: "Select the build environment"
+       description: "Select the build environment eg: dev, staging, prod"
        required: true
        type: string
 
@@ -14,7 +14,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git workflow running
-        uses: actions/checkout@v4
+        run: echo ${{inputs.Buildenv}}
 
       - name: Workflow test
         run: echo "Github workflow is running successfully"
