@@ -34,7 +34,11 @@ jobs:
         run: |
          Env="${{inputs.Buildenv}}"
          echo "$Env" 
-        
+
+      - name: Cleanup spec option recceived
+        run: | 
+         Clenup="${{input.Runcleanupspecs}}"
+         echo "$Clenup"
         
         
   # this is an example of using the yml instructions to convert the input value to lowercase
