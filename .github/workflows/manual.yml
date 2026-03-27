@@ -11,6 +11,12 @@ on:
       description: "Enter a valid tag to run test cases"
       required: true
       type: string
+     Runcleanupspecs:
+      type: choice
+      required: true
+      options:
+         - "true"
+         - "false"
 jobs:
   Worflow_test:
     runs-on: ubuntu-latest
