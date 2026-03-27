@@ -23,5 +23,5 @@ jobs:
         run: echo  ${{inputs.Tags}}
       
       - name: YML instructions working 
-        run: echo ${{inputs.Buildenv.towlowercase()}} # this is an example of using the yml instructions to convert the input value to lowercase
+        run: echo ${{inputs.Buildenv}} # this is an example of using the yml instructions to convert the input value to lowercase
         
