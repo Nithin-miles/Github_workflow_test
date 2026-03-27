@@ -15,13 +15,15 @@ jobs:
   Worflow_test:
     runs-on: ubuntu-latest
     steps:
-      - name: Git workflow running
+      - name: Current git worflow env
         run: echo ${{inputs.Buildenv}} #this print the value of the input
         # provided at the time of triggering the workflow
 
       - name: Tags received for test
-        run: echo  ${{inputs.Tags}}
-      
+        run: |
+         Tag ="${{inputs.Tags}}" 
+         echo: "Received tag: $Tag"
+
       - name: YML instructions working 
         run: echo ${{inputs.Buildenv}} # this is an example of using the yml instructions to convert the input value to lowercase
         
