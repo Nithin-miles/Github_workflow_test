@@ -22,8 +22,9 @@ jobs:
       - name: Tags received for test
         run: |
          Tag ="${{inputs.Tags}}" 
-         echo: "Received tag: $Tag"
+         echo "Received tag: $Tag"
 
       - name: YML instructions working 
-        run: echo ${{inputs.Buildenv}} # this is an example of using the yml instructions to convert the input value to lowercase
+        run: |
+         echo ${{inputs.Buildenv}} # this is an example of using the yml instructions to convert the input value to lowercase
         
