@@ -3,24 +3,24 @@ name: Manual workflow test
 on:
   workflow_dispatch:
     inputs:
-     Buildenv:
-       description: "Select the build environment eg: dev, staging, prod"
-       required: true
-       type: string  # this inputs are showed at the time of #triggering a new workflow manually
-     Tags:
-      description: "Enter a valid tag to run test cases"
-      required: true
-      type: string
-     Runcleanupspecs:
-      type: choice
-      required: true
-      options:
-         - "true"
-         - "false"
+      Buildenv:
+        description: "Select the build environment eg: dev, staging, prod"
+        required: true
+        type: string  # this inputs are showed at the time of #triggering a new workflow manually
+      Tags:
+        description: "Enter a valid tag to run test cases"
+        required: true
+        type: string
+      Runcleanupspecs:
+        type: choice
+        required: true
+        options:
+          - "true"
+          - "false"
 jobs:
   Worflow_test:
     runs-on: ubuntu-latest
-    if: ${{inputs.Tags='@smoke'}} # this condition is used to run the workflow only when the input value of tags is @smoke
+    if: ${{inputs.Tags=='@smoke'}} # this condition is used to run the workflow only when the input value of tags is @smoke
     steps:
       - name: Current git worflow env
         run: echo ${{inputs.Buildenv}} #this print the value of the input
@@ -28,29 +28,30 @@ jobs:
 
       - name: TAGS WORKING IN
         run: |
-         Tag="${{inputs.Tags}}" 
-         echo "Received tag: $Tag"
+          Tag="${{inputs.Tags}}"
+          echo "Received tag: $Tag"
 
       - name: ENV WORKING IN
         run: |
-         Env="${{inputs.Buildenv}}"
-         echo "$Env" 
+          Env="${{inputs.Buildenv}}"
+          echo "$Env"
 
       - name: Cleanup spec option received
-        run: | 
-         Clenup="${{inputs.Runcleanupspecs}}"
-         echo "$Clenup"
+        run: |
+          Clenup="${{inputs.Runcleanupspecs}}"
+          echo "$Clenup"
+
   JOBE_2:
     runs-on: ubuntu-latest
     if: ${{ inputs.Buildenv != 'Prod' }}
     needs: Worflow_test
     steps:
-      - name: Current ENV and tags 
+      - name: Current ENV and tags
         run: |
-         Env="${{inputs.Buildenv}}"
-         TAGS="${{inputs.Tags}}"
-         echo "ENV: $Env"  
-         echo "TAGS: $TAGS"
+          Env="${{inputs.Buildenv}}"
+          TAGS="${{inputs.Tags}}"
+          echo "ENV: $Env"
+          echo "TAGS: $TAGS"
 
   JOBE_3:
     runs-on: ubuntu-latest
@@ -59,8 +60,7 @@ jobs:
     steps:
       - name: Current ENV and tags
         run: |
-         Env="${{inputs.Buildenv}}"
-         echo "Uppercase environment: $Env"      
-        
+          Env="${{inputs.Buildenv}}"
+          echo "Uppercase environment: $Env"
+
   # this is an example of using the yml instructions to convert the input value to lowercase
-        
