@@ -41,12 +41,23 @@ jobs:
          echo "$Clenup"
   JOBE_2:
     runs-on: ubuntu-latest
+    needs: Worflow_test
     steps:
       - name: Convert input to lowercase
         run: |
          Env="${{inputs.Buildenv}}"
          LowerEnv=$(echo "$Env" | tr '[:upper:]' '[:lower:]')
-         echo "Lowercase environment: $LowerEnv"        
+         echo "Lowercase environment: $LowerEnv"  
+
+  JOBE_3:
+    runs-on: ubuntu-latest
+    needs: JOBE_2
+    steps:
+      - name: Convert input to uppercase
+        run: |
+         Env="${{inputs.Buildenv}}"
+         UpperEnv=$(echo "$Env" | tr '[:lower:]' '[:upper:]')
+         echo "Uppercase environment: $UpperEnv"      
         
   # this is an example of using the yml instructions to convert the input value to lowercase
         
