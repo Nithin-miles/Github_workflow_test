@@ -39,7 +39,14 @@ jobs:
         run: | 
          Clenup="${{inputs.Runcleanupspecs}}"
          echo "$Clenup"
-        
+  JOBE_2:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Convert input to lowercase
+        run: |
+         Env="${{inputs.Buildenv}}"
+         LowerEnv=$(echo "$Env" | tr '[:upper:]' '[:lower:]')
+         echo "Lowercase environment: $LowerEnv"        
         
   # this is an example of using the yml instructions to convert the input value to lowercase
         
