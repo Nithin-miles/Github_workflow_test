@@ -41,22 +41,22 @@ jobs:
          echo "$Clenup"
   JOBE_2:
     runs-on: ubuntu-latest
-    if: "${{inputs.Buildenv}} !== 'Prod'"
+    if: "${{inputs.Buildenv}} != 'Prod'"
     needs: Worflow_test
     steps:
-      - name: Convert input to lowercase
+      - name: Current ENV and tags 
         run: |
          Env="${{inputs.Buildenv}}"
          TAGS="${{inputs.Tags}}"
-         echo "Lowercase environment: $Env"  
+         echo ": $Env"  
          echo "Lowercase TAGS: $TAGS"
 
   JOBE_3:
     runs-on: ubuntu-latest
     needs: JOBE_2
-    if: "${{inputs.Buildenv}} !== 'Prod'" 
+    if: "${{inputs.Buildenv}} != 'Prod'" 
     steps:
-      - name: Convert input to uppercase
+      - name: Current ENV and tags
         run: |
          Env="${{inputs.Buildenv}}"
          echo "Uppercase environment: $Env"      
