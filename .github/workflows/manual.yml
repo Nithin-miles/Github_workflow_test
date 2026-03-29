@@ -20,6 +20,7 @@ on:
 jobs:
   Worflow_test:
     runs-on: ubuntu-latest
+    if: ${{inputs.Tags='@smoke'}} # this condition is used to run the workflow only when the input value of tags is @smoke
     steps:
       - name: Current git worflow env
         run: echo ${{inputs.Buildenv}} #this print the value of the input
