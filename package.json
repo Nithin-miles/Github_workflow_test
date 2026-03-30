@@ -1,0 +1,16 @@
+{
+  "name": "github-workflow-test",
+  "version": "1.0.0",
+  "description": "Test repo for GitHub Actions workflow practice",
+  "scripts": {
+    "test": "echo \"Running tests...\" && exit 0",
+    "lint": "echo \"Running lint...\" && exit 0"
+  },
+  "dependencies": {
+    "axios": "^1.6.0",
+    "dotenv": "^16.3.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
