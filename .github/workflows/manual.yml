@@ -56,7 +56,7 @@ jobs:
   JOBE_3:
     runs-on: ubuntu-latest
     needs: JOBE_2
-    if: ${{ inputs.Buildenv != 'Prod' }}
+    if: ${{always()}} # this condition is used to run the workflow even if the previous job is failed or cancelled
     steps:
       - name: Current ENV and tags
         run: |
