@@ -23,6 +23,13 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ inputs.Tags == '@smoke' }}
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Install Dependencies
+        run: npm install || (rm -rf node_modules && npm install)
+  
+      
       - name: Current git workflow env
         run: echo ${{ inputs.Buildenv }}
 
@@ -30,7 +37,7 @@ jobs:
         run: |
           Tag="${{ inputs.Tags }}"
           echo "Received tag: $Tag"
-
+ 
       - name: ENV WORKING IN
         run: |
           Env="${{ inputs.Buildenv }}"
@@ -41,6 +48,13 @@ jobs:
           Cleanup="${{ inputs.Runcleanupspecs }}"
           echo "$Cleanup"
 
+      - name: aritifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: my-artifact
+          path: test-output.txt
+
+
   JOBE_2:
     runs-on: ubuntu-latest
     if: ${{ inputs.Buildenv != 'Prod' }}
@@ -49,12 +63,18 @@ jobs:
       matrix:
         environment: [Prod, QA]   # ✅ fixed indentation
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
       - name: Current ENV and tags
         run: |
           Env="${{ matrix.environment }}"   # ✅ use matrix value here
           TAGS="${{ inputs.Tags }}"
           echo "ENV: $Env"
           echo "TAGS: $TAGS"
+      - name: download artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: my-artifact
 
   JOBE_3:
     runs-on: ubuntu-latest
