@@ -18,6 +18,9 @@ on:
           - "true"
           - "false"
 
+env:
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+
 jobs:
   Worflow_test:
     runs-on: ubuntu-latest
