@@ -1,6 +1,34 @@
+# Dependencies
 node_modules/
+
+# Cypress output
 cypress/screenshots/
 cypress/videos/
 cypress/reports/
+cypress/downloads/
+
+# Playwright output
 playwright-report/
 test-results/
+.playwright/
+.last-run.json
+
+# Environment & secrets — never commit these
+.env
+.env.local
+.env.qa
+.env.preprod
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor files
+.vscode/
+.idea/
+
+# Logs
+*.log
+npm-debug.log*
+logs/
