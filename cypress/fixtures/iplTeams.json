@@ -1,0 +1,16 @@
+{
+  "expectedTeams": [
+    "RCB",
+    "CSK",
+    "MI",
+    "KKR",
+    "DC",
+    "SRH",
+    "PBKS",
+    "RR",
+    "LSG",
+    "GT"
+  ],
+  "teamToAssert": "RCB",
+  "url": "/points-table/men"
+}
