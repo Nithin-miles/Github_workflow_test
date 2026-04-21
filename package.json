@@ -5,10 +5,10 @@
   "scripts": {
     "cy:open": "cypress open",
     "cy:run": "cypress run",
-    "cy:run:ipl": "cypress run --spec 'cypress/e2e/ipl/pointsTable.cy.js'",
+    "cy:run:ipl": "cypress run --spec 'cypress/e2e/orangeHRM/systemUsers.cy.js'",
     "pw:install": "playwright install",
     "pw:test": "playwright test",
-    "pw:test:ipl": "playwright test playwright/tests/ipl/pointsTable.spec.js",
+    "pw:test:ipl": "playwright test playwright/tests/orangeHRM/systemUsers.spec.js",
     "pw:report": "playwright show-report",
     "cy:merge-reports": "mochawesome-merge cypress/reports/*.json > cypress/reports/merged.json",
     "cy:generate-report": "marge cypress/reports/merged.json -f report -o cypress/reports/html",

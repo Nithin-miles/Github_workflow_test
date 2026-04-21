@@ -100,7 +100,7 @@ jobs:
         run: npx playwright install --with-deps chromium
 
       - name: Run Playwright IPL points table test
-        run: npx playwright test playwright/tests/ipl/pointsTable.spec.js --project=chromium
+        run: npx playwright test playwright/tests/orangeHRM/systemUsers.spec.js --project=chromium
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4

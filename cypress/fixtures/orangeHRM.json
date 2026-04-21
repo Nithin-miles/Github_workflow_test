@@ -1,0 +1,13 @@
+{
+  "loginUrl": "/web/index.php/auth/login",
+  "systemUsersUrl": "/web/index.php/admin/viewSystemUsers",
+  "credentials": {
+    "username": "Admin",
+    "password": "admin123"
+  },
+  "searchParams": {
+    "username": "admin",
+    "userRole": "ESS",
+    "status": "Enabled"
+  }
+}
