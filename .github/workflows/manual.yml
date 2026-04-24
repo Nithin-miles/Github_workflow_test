@@ -125,7 +125,7 @@ jobs:
 
       - name: Run Cypress Assertion specs
         run: |
-          npx cypress run --spec 'cypress/e2e/ipl/pointsTable.cy.js' --browser chromium
+          npx cypress run --spec 'cypress/e2e/youtube/search.cy.js' --browser chromium
     
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4
