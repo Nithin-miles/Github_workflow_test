@@ -17,7 +17,8 @@ on:
         options:
           - "true"
           - "false"
-
+  schedule:
+    - cron: '0 5 * * *' # Schedule to run at 5:00 AM every day
 jobs:
   Workflow_test:
     runs-on: ubuntu-latest
